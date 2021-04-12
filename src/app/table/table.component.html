@@ -1,0 +1,23 @@
+<div *ngIf="data$ | async as data">
+  <div class="pagination">
+    <a (click)="setPage(page - 1, data.previous)">&laquo;</a>
+    <a
+      (click)="setPage(i + 1, true)"
+      [ngClass]="{ active: i + 1 === page }"
+      *ngFor="let p of getPossiblePages(data.count); let i = index"
+      >{{ i + 1 }}</a
+    >
+
+    <a (click)="setPage(page + 1, data.next)">&raquo;</a>
+  </div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Class</th>
+    </tr>
+    <tr *ngFor="let ship of data.results" (click)="navigateToDetails(ship.url)">
+      <td>{{ ship.name }}</td>
+      <td>{{ ship.starship_class }}</td>
+    </tr>
+  </table>
+</div>
