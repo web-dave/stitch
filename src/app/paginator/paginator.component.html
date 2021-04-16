@@ -1,0 +1,10 @@
+<div class="pagination">
+  <a (click)="setPage(page - 1, previous)">&laquo;</a>
+  <a
+    (click)="setPage(i + 1, true)"
+    [ngClass]="{ active: i + 1 === page }"
+    *ngFor="let p of pages; let i = index"
+    >{{ i + 1 }}</a
+  >
+  <a (click)="setPage(page + 1, next)">&raquo;</a>
+</div>

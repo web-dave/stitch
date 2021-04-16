@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
 import { DetailsComponent } from './details/details.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
-  declarations: [AppComponent, TableComponent, DetailsComponent],
+  declarations: [AppComponent, TableComponent, DetailsComponent, PaginatorComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

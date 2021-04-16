@@ -1,15 +1,11 @@
 <div *ngIf="data$ | async as data">
-  <div class="pagination">
-    <a (click)="setPage(page - 1, data.previous)">&laquo;</a>
-    <a
-      (click)="setPage(i + 1, true)"
-      [ngClass]="{ active: i + 1 === page }"
-      *ngFor="let p of getPossiblePages(data.count); let i = index"
-      >{{ i + 1 }}</a
-    >
-
-    <a (click)="setPage(page + 1, data.next)">&raquo;</a>
-  </div>
+  <stitch-paginator
+    [previous]="data.previous"
+    [next]="data.next"
+    [pages]="getPossiblePages(data.count)"
+    [page]="page"
+    (goto)="setPage($event)"
+  ></stitch-paginator>
   <table>
     <tr>
       <th>Name</th>
