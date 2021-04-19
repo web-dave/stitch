@@ -21,7 +21,7 @@ import { IResponse, StarwarsService } from '../starwars.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements AfterViewChecked {
+export class TableComponent {
   cellList = ['Name', 'Class'];
   compList = { Name: ShipNameComponent, Class: ShipClassComponent };
   @ViewChildren(DynDirDirective) cells!: DynDirDirective[];
@@ -36,11 +36,18 @@ export class TableComponent implements AfterViewChecked {
     private componentFactoryResolver: ComponentFactoryResolver
   ) {
     this.data$ = this.loadData$$.pipe(
-      switchMap((i) => this.service.getAllStarships(i).pipe(tap(console.log)))
+      switchMap((i) =>
+        this.service.getAllStarships(i).pipe(
+          tap(console.log),
+          tap(() => {
+            setTimeout(() => this.loadComp(), 0);
+          })
+        )
+      )
     );
   }
 
-  ngAfterViewChecked(): void {
+  loadComp(): void {
     console.log('Name ===>', this.cells);
     this.cells.forEach((d, i) => {
       console.log(d);
@@ -53,12 +60,6 @@ export class TableComponent implements AfterViewChecked {
       );
       myComponent.instance.data = d.stitchDynDirData;
     });
-    // const comp = this.cells.viewRef.createComponent(
-    //   this.componentFactoryResolver.resolveComponentFactory(ShipClassComponent)
-    // );
-
-    // comp.instance.data =
-    // this.cells[0].viewRef;
   }
 
   getTemp(data: TemplateRef<DynDirDirective>, c: string) {
