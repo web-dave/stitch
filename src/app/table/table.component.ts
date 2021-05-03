@@ -38,7 +38,6 @@ export class TableComponent {
     this.data$ = this.loadData$$.pipe(
       switchMap((i) =>
         this.service.getAllStarships(i).pipe(
-          tap(console.log),
           tap(() => {
             setTimeout(() => this.loadComp(), 0);
           })
@@ -50,7 +49,6 @@ export class TableComponent {
   loadComp(): void {
     console.log('Name ===>', this.cells);
     this.cells.forEach((d, i) => {
-      console.log(d);
       let comp: any = ShipNameComponent;
       if (d.stitchDynDir === 'Class') {
         comp = ShipClassComponent;
