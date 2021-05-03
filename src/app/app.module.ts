@@ -14,6 +14,8 @@ import { LoadingComponent } from './loading/loading.component';
 import { LogInOutBtnComponent } from './log-in-out-btn/log-in-out-btn.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { environment as env } from '../environments/environment';
     DynDirDirective,
     LoadingComponent,
     LogInOutBtnComponent,
+    TopNavComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -47,7 +47,6 @@ export class TableComponent {
   }
 
   loadComp(): void {
-    console.log('Name ===>', this.cells);
     this.cells.forEach((d, i) => {
       let comp: any = ShipNameComponent;
       if (d.stitchDynDir === 'Class') {

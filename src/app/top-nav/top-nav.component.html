@@ -1,0 +1,8 @@
+<div class="topnav" [ngClass]="{ ' responsive': responsive }" id="myTopnav">
+  <a routerLink="home" routerLinkActive="active">Home</a>
+  <a routerLink="ships" routerLinkActive="active">Ships</a>
+  <a href="#about" style="float: right"
+    ><stitch-log-in-out-btn></stitch-log-in-out-btn
+  ></a>
+  <a class="icon" (click)="responsive = !responsive"> 🍔 </a>
+</div>
