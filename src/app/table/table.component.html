@@ -8,12 +8,15 @@
   ></stitch-paginator>
   <table>
     <tr>
-      <th>Name</th>
-      <th>Class</th>
+      <th *ngFor="let c of cellList">{{ c }}</th>
     </tr>
     <tr *ngFor="let ship of data.results" (click)="navigateToDetails(ship.url)">
-      <td>{{ ship.name }}</td>
-      <td>{{ ship.starship_class }}</td>
+      <td *ngFor="let c of cellList">
+        <ng-template [stitchDynDir]="c" [stitchDynDirData]="ship"></ng-template>
+      </td>
     </tr>
   </table>
+
+  <pre>{{ data.results[0].created }}</pre>
+  <pre>{{ data.results[0].created | date: "d,MMM :) YYYY" }}</pre>
 </div>
