@@ -8,7 +8,5 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'stitch';
-  foo = 8;
   constructor(private router: Router, public auth: AuthService) {}
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,9 @@ import { LoadingComponent } from './loading/loading.component';
 import { LogInOutBtnComponent } from './log-in-out-btn/log-in-out-btn.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { HomeComponent } from './home/home.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { environment as env } from '../environments/environment';
     DynDirDirective,
     LoadingComponent,
     LogInOutBtnComponent,
+    TopNavComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,13 @@ import { environment as env } from '../environments/environment';
     HttpClientModule,
     AuthModule.forRoot({ ...env.auth }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
