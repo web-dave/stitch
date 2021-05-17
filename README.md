@@ -7,3 +7,6 @@ Ein lustiges Projekt welches ich in einem wöchentlichem Livestream auf Twitch z
 https://twitch.com/webdave_de
 
 # Jeden Montag ab 20:00
+
+cul53148@cuoly.com
+sJct3RSCTgKmhtM
