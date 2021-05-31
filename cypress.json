@@ -7,5 +7,5 @@
   "fixturesFolder": "cypress/fixtures",
   "baseUrl": "http://localhost:4200",
   "chromeWebSecurity": false,
-  // "testFiles": "**/*.feature"
+  "testFiles": "**/*.feature"
 }
