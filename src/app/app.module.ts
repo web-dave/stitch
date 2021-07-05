@@ -18,6 +18,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { EhcaihbcComponent } from './ehcaihbc/ehcaihbc.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EhcaihbcComponent } from './ehcaihbc/ehcaihbc.component';
     TopNavComponent,
     HomeComponent,
     EhcaihbcComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { TableComponent } from './table/table.component';
+import { TestComponent } from './test/test.component';
 const matcher = (url: UrlSegment[]) => {
   console.log(url);
   return url.length === 1 && url[0].path === 'ships'
@@ -17,6 +18,10 @@ const matcher = (url: UrlSegment[]) => {
 };
 
 const routes: Routes = [
+  {
+    path: 'test',
+    component: TestComponent,
+  },
   {
     path: 'home',
     component: HomeComponent,
