@@ -35,6 +35,7 @@
     "@angular/compiler-cli": "~12.0.0",
     "@briebug/cypress-schematic": "^5.0.0",
     "@cypress/browserify-preprocessor": "^3.0.1",
+    "@ngneat/spectator": "^7.2.0",
     "@types/cypress-cucumber-preprocessor": "^4.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",

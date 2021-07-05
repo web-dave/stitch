@@ -1,14 +1,31 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, UrlSegment } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { TableComponent } from './table/table.component';
+const matcher = (url: UrlSegment[]) => {
+  console.log(url);
+  return url.length === 1 && url[0].path === 'ships'
+    ? {
+        consumed: url,
+        posParams: {
+          id: new UrlSegment(url[0].path, {}),
+        },
+      }
+    : null;
+};
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    matcher: matcher,
+    component: TableComponent,
+    canActivate: [AuthGuard],
+    children: [],
   },
   {
     path: 'ships',

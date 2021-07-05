@@ -52,15 +52,16 @@ export class TableComponent {
       if (d.stitchDynDir === 'Class') {
         comp = ShipClassComponent;
       }
-      const myComponent: ComponentRef<ShipClassComponent> = d.viewRef.createComponent(
-        this.componentFactoryResolver.resolveComponentFactory(comp)
-      );
+      const myComponent: ComponentRef<ShipClassComponent> =
+        d.viewRef.createComponent(
+          this.componentFactoryResolver.resolveComponentFactory(comp)
+        );
       myComponent.instance.data = d.stitchDynDirData;
     });
   }
 
   getTemp(data: TemplateRef<DynDirDirective>, c: string) {
-    console.log(data, c);
+    // console.log(data, c);
   }
 
   setPage(n: number) {
@@ -72,7 +73,8 @@ export class TableComponent {
     return new Array(Math.round(count / 10));
   }
   navigateToDetails(url: string) {
-    const id = url.replace('http://swapi.dev/api/starships/', '').split('/');
+    const id = url.replace('https://swapi.dev/api/starships/', '').split('/');
+    this.service.params$$.next({ id: id[0] });
     this.router.navigate([id[0]], { relativeTo: this.route });
   }
 }

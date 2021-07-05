@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export interface IResponse {
   count: number;
@@ -33,7 +34,9 @@ export interface IResult {
   providedIn: 'root',
 })
 export class StarwarsService {
-  url = 'http://swapi.dev/api/';
+  params$$ = new BehaviorSubject({});
+
+  url = 'https://swapi.dev/api/';
   constructor(private http: HttpClient) {}
 
   getAllStarships(page: number) {

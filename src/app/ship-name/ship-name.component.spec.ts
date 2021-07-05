@@ -1,25 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
 
 import { ShipNameComponent } from './ship-name.component';
 
-describe('ShipNameComponent', () => {
-  let component: ShipNameComponent;
-  let fixture: ComponentFixture<ShipNameComponent>;
+fdescribe('ShipNameComponent', () => {
+  fdescribe('ShipNameComponent', () => {
+    let spectator: Spectator<ShipNameComponent>;
+    const createComponent = createComponentFactory(ShipNameComponent);
+    const ship: any = { name: 'falcon' };
+    beforeEach(() => {
+      spectator = createComponent();
+    });
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ShipNameComponent ]
-    })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ShipNameComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    it('should have a title', () => {
+      spectator.setInput('data', ship);
+      expect(spectator.query('h4')).toHaveText('FALCON');
+    });
   });
 });

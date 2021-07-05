@@ -17,6 +17,7 @@ import { environment as env } from '../environments/environment';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { EhcaihbcComponent } from './ehcaihbc/ehcaihbc.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AuthInterceptor } from './auth.interceptor';
     LogInOutBtnComponent,
     TopNavComponent,
     HomeComponent,
+    EhcaihbcComponent,
   ],
   imports: [
     BrowserModule,
