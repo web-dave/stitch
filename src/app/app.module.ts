@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { ApplicationRef, DoBootstrap, Injector, NgModule } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -49,6 +50,14 @@ import { TestComponent } from './test/test.component';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule implements DoBootstrap {
+  constructor(private injector: Injector) {
+    customElements.define(
+      'stitch-app',
+      createCustomElement(AppComponent, { injector })
+    );
+  }
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+  ngDoBootstrap(appRef: ApplicationRef): void {}
+}
