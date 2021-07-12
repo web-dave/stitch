@@ -15,11 +15,13 @@
     "@angular/common": "~12.0.0",
     "@angular/compiler": "~12.0.0",
     "@angular/core": "~12.0.0",
+    "@angular/elements": "^12.0.2",
     "@angular/forms": "~12.0.0",
     "@angular/platform-browser": "~12.0.0",
     "@angular/platform-browser-dynamic": "~12.0.0",
     "@angular/router": "~12.0.0",
     "@auth0/auth0-angular": "^1.4.1",
+    "document-register-element": "^1.7.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
