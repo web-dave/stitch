@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { EhcaihbcComponent } from './ehcaihbc/ehcaihbc.component';
 import { TestComponent } from './test/test.component';
+import { ListeComponent } from './liste/liste.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TestComponent } from './test/test.component';
     HomeComponent,
     EhcaihbcComponent,
     TestComponent,
+    ListeComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,14 +52,15 @@ import { TestComponent } from './test/test.component';
       multi: true,
     },
   ],
+  bootstrap: [AppComponent],
 })
-export class AppModule implements DoBootstrap {
-  constructor(private injector: Injector) {
-    customElements.define(
-      'stitch-app',
-      createCustomElement(AppComponent, { injector })
-    );
-  }
-  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
-  ngDoBootstrap(appRef: ApplicationRef): void {}
+export class AppModule {
+  // constructor(private injector: Injector) {
+  //   customElements.define(
+  //     'stitch-app',
+  //     createCustomElement(AppComponent, { injector })
+  //   );
+  // }
+  // // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+  // ngDoBootstrap(appRef: ApplicationRef): void {}
 }

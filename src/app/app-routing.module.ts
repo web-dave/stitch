@@ -23,6 +23,11 @@ const routes: Routes = [
     component: TestComponent,
   },
   {
+    path: 'test/:id',
+    component: TestComponent,
+    resolve: [AuthGuard],
+  },
+  {
     path: 'home',
     component: HomeComponent,
   },
