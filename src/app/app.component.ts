@@ -18,10 +18,5 @@ export class AppComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.service.params$$.subscribe((params) => console.log(params));
-
-    setInterval(() => {
-      this.myId++;
-      this.router.navigate(['test', this.myId]);
-    }, 2000);
   }
 }
