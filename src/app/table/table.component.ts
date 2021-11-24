@@ -74,7 +74,7 @@ export class TableComponent {
   }
   navigateToDetails(url: string) {
     const id = url.replace('https://swapi.dev/api/starships/', '').split('/');
-    this.service.params$$.next({ id: id[0] });
+    // this.service.params$$.next({ id: id[0] });
     this.router.navigate([id[0]], { relativeTo: this.route });
   }
 }

@@ -4,23 +4,28 @@ import {
   CanActivate,
   Resolve,
   RouterStateSnapshot,
+  UrlTree,
 } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate, Resolve<number> {
+export class AuthGuard implements CanActivate {
   constructor(public auth: AuthService) {}
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): number | Observable<number> | Promise<number> {
-    return of(99999).pipe(delay(1500));
-  }
-  canActivate(): Observable<boolean> {
-    return this.auth.isAuthenticated$;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.auth.isAuthenticated$.pipe(
+      tap((data) => {
+        if (!data) {
+          this.auth.loginWithRedirect({
+            redirect_uri: 'http://localhost:4200' + state.url,
+          });
+        }
+        return data;
+      })
+    );
+    //
   }
 }

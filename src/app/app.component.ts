@@ -8,7 +8,7 @@ import { StarwarsService } from './starwars.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   hurz = { name: 'Hurz' };
   myId = 0;
   constructor(
@@ -16,7 +16,4 @@ export class AppComponent implements OnInit {
     private service: StarwarsService,
     private router: Router
   ) {}
-  ngOnInit(): void {
-    this.service.params$$.subscribe((params) => console.log(params));
-  }
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes, UrlSegment } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
+import { ProfilComponent } from './profil/profil.component';
 import { TableComponent } from './table/table.component';
 import { TestComponent } from './test/test.component';
 const matcher = (url: UrlSegment[]) => {
@@ -19,27 +20,26 @@ const matcher = (url: UrlSegment[]) => {
 const routes: Routes = [
   {
     path: 'test',
-    component: TestComponent,
-  },
-  {
-    path: 'test/:id',
-    component: TestComponent,
-    resolve: [AuthGuard],
+    component: ProfilComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'home',
     component: HomeComponent,
   },
   {
+    path: 'ships',
+    component: TableComponent,
+    canActivate: [AuthGuard],
+    data: {
+      name: 'chips',
+    },
+  },
+  {
     matcher: matcher,
     component: TableComponent,
     canActivate: [AuthGuard],
     children: [],
-  },
-  {
-    path: 'ships',
-    component: TableComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'ships/:id',

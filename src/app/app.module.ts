@@ -21,6 +21,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { EhcaihbcComponent } from './ehcaihbc/ehcaihbc.component';
 import { TestComponent } from './test/test.component';
 import { ListeComponent } from './liste/liste.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ListeComponent } from './liste/liste.component';
     EhcaihbcComponent,
     TestComponent,
     ListeComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,

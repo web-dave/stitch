@@ -42,4 +42,9 @@ export class StarwarsService {
   getAllStarships(page: number) {
     return this.http.get<IResponse>(this.url + 'starships/?page=' + page);
   }
+  getStarships(id: number, format: 'wookiee' | 'json' = 'json') {
+    return this.http.get<IResponse>(
+      this.url + 'starships/' + id + '?format=' + format
+    );
+  }
 }

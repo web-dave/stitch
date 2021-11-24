@@ -1,0 +1,8 @@
+<div *ngIf="user$ | async as user">
+  <img [src]="user.picture" alt="" />
+
+  <h2>{{ user.nickname }}</h2>
+  <h5>{{ user.email }}</h5>
+
+  <pre>{{ user | json }}</pre>
+</div>
